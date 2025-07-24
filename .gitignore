@@ -20,4 +20,32 @@ node_modules/
 # Logs
 npm-debug.log*
 yarn-debug.log*
-yarn-error.log* 
+yarn-error.log*
+
+# Backend requirements
+requirements.txt
+
+# Backend start command
+uvicorn main:app --host 0.0.0.0 --port 10000
+
+git push --set-upstream origin main
+
+git add requirements.txt
+git commit -m "Add requirements.txt for backend deployment"
+git push
+
+git rm --cached .env
+git add .gitignore
+git commit -m "Remove .env from repo and add to .gitignore"
+
+pip freeze > requirements.txt
+
+echo fastapi> requirements.txt
+echo uvicorn>> requirements.txt
+echo pinecone-client>> requirements.txt
+echo requests>> requirements.txt
+echo python-dotenv>> requirements.txt
+echo httpx>> requirements.txt
+echo transformers>> requirements.txt
+echo sentence-transformers>> requirements.txt
+echo groq>> requirements.txt
